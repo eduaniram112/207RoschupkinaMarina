@@ -1,5 +1,5 @@
 ﻿using System;
-
+//1 задача из классной
 namespace Task01
 {
     class Program
