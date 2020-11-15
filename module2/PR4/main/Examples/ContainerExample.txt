@@ -1,0 +1,3 @@
+﻿3 | 10 5 potato | 4 1 carrot | 3 2 tomato
+2 | 1 500 gold | 6 10 apple
+2 | 100 50 potato | 7 10 potato
