@@ -32,7 +32,7 @@ namespace main
             Console.WriteLine("Сколько ящиков хотите туда положить? Могут влезть не все");
             int number;
             bool numbbool = int.TryParse(Console.ReadLine(), out number);
-            if (numbbool)
+            if (numbbool && number>=0)
             {
                 //Добавляем ящики.
                 for (int i = 0; i < number; i++)
@@ -48,10 +48,15 @@ namespace main
                     {
                         bool weibool = double.TryParse(str[0], out weight);
                         bool prbool = double.TryParse(str[1], out price);
-                        if (weibool && prbool)
+                        if (weibool && prbool && weight>=0 && price>=0)
                         {
                             //Заполняем ящик.
                             box = new Box(weight, price, str[2]);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Неправильно введены данные, все будет заполнено нулями");
+
                         }
                     }
                     else
@@ -85,7 +90,7 @@ namespace main
                 bool capbool = int.TryParse(str[0], out capacity);
                 bool chbool = int.TryParse(str[1], out charge);
                 // Проверяем, что параметры правильные.
-                if (chbool && capbool)
+                if (chbool && capbool && capacity>=0 && charge >=0)
                 {
                     //Изменяем склад.
                     warehouse = new Warehouse(capacity, charge);
@@ -137,7 +142,7 @@ namespace main
                     bool prbool = double.TryParse(boxInfo[1], out price);
 
                     //Проверяем правильность параметров.
-                    if (weibool && prbool)
+                    if (weibool && prbool && weight>=0 && price >=0)
                     {
                         //Заполняем ящик.
                         box = new Box(weight, price, boxInfo[2]);
@@ -315,6 +320,7 @@ namespace main
                     if (ansbool && (ans == 1 || ans == 2))
                     {
                         Warehouse warehouse;
+                        //Режим работы через консоль.
                         if (ans == 1)
                         {
                             Console.WriteLine("Введите через пробел вместимость склада и плату за хранение");
@@ -325,7 +331,8 @@ namespace main
                             Menu(warehouse);
                             if (Exit() == 1) flag = true;
                         }
-                        else
+                        //Режим работы через файлы.
+                        else if (ans==2)
                         {
                             FileMenu();
 
