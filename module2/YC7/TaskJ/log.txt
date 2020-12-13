@@ -1,0 +1,4 @@
+System.ArgumentException User Petya: login is not registered
+User Petya: login registered
+System.ArgumentOutOfRangeException Specified argument was out of the range of valid values. (Parameter 'User Petya: random bounds out of range')
+User Petya: generate number number 6
